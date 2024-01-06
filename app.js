@@ -4,6 +4,7 @@ const db = require('./db');
 const app = express();
 const PORT = 3000;
 
+// verander eventuele gegevens van je localhost of ip indien nodig
 const corsOptions = {
     origin: 'http://127.0.0.1:5500',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -17,7 +18,7 @@ app.use(express.json());
 
 app.get('/users', async (req, res) => {
     try {
-        const [rows] = await db.execute('SELECT * FROM users');
+        const [rows] = await db.execute('SELECT * FROM clients');
         res.json(rows);
     } catch (error) {
         console.error('Error fetching users:', error);
